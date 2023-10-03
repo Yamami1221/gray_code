@@ -1,0 +1,178 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\PROGRA~1\iverilog\lib\ivl\va_math.vpi";
+S_0000022b1a269e10 .scope module, "grayCodeStimulus" "grayCodeStimulus" 2 1;
+ .timescale 0 0;
+v0000022b1a2d37b0_0 .var "clk", 0 0;
+v0000022b1a2d4110_0 .net "out", 1 0, L_0000022b1a2d44d0;  1 drivers
+v0000022b1a2d30d0_0 .var "res", 0 0;
+S_0000022b1a276280 .scope module, "g" "grayCode" 2 5, 3 1 0, S_0000022b1a269e10;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 2 "out";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /INPUT 1 "res";
+v0000022b1a2c9940_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  1 drivers
+v0000022b1a2c9a80_0 .net "out", 1 0, L_0000022b1a2d44d0;  alias, 1 drivers
+v0000022b1a2c9b20_0 .net "q", 1 0, L_0000022b1a2d3850;  1 drivers
+v0000022b1a2c9c60_0 .net "res", 0 0, v0000022b1a2d30d0_0;  1 drivers
+S_0000022b1a276410 .scope module, "c" "counter" 3 6, 3 18 0, S_0000022b1a276280;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 2 "q";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /INPUT 1 "res";
+v0000022b1a2ca520_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  alias, 1 drivers
+v0000022b1a2ca020_0 .net "q", 1 0, L_0000022b1a2d3850;  alias, 1 drivers
+v0000022b1a2c9bc0_0 .net "res", 0 0, v0000022b1a2d30d0_0;  alias, 1 drivers
+L_0000022b1a2d3850 .concat8 [ 1 1 0 0], v0000022b1a27bb90_0, v0000022b1a2ca340_0;
+L_0000022b1a2d3170 .part L_0000022b1a2d3850, 0, 1;
+S_0000022b1a27b7d0 .scope module, "t0" "T_FF" 3 22, 3 26 0, S_0000022b1a276410;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "q";
+    .port_info 1 /INPUT 1 "t";
+    .port_info 2 /INPUT 1 "clk";
+    .port_info 3 /INPUT 1 "res";
+L_0000022b1a2d5098 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0000022b1a26b980 .functor XOR 1, v0000022b1a27bb90_0, L_0000022b1a2d5098, C4<0>, C4<0>;
+v0000022b1a276640_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  alias, 1 drivers
+v0000022b1a3eeac0_0 .net "d", 0 0, L_0000022b1a26b980;  1 drivers
+v0000022b1a3eeb60_0 .net "q", 0 0, v0000022b1a27bb90_0;  1 drivers
+v0000022b1a3eec00_0 .net "res", 0 0, v0000022b1a2d30d0_0;  alias, 1 drivers
+v0000022b1a2c9ee0_0 .net "t", 0 0, L_0000022b1a2d5098;  1 drivers
+S_0000022b1a27b960 .scope module, "dff" "D_FF" 3 32, 3 35 0, S_0000022b1a27b7d0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "q";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /INPUT 1 "clk";
+    .port_info 3 /INPUT 1 "res";
+v0000022b1a26c1f0_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  alias, 1 drivers
+v0000022b1a27baf0_0 .net "d", 0 0, L_0000022b1a26b980;  alias, 1 drivers
+v0000022b1a27bb90_0 .var "q", 0 0;
+v0000022b1a2765a0_0 .net "res", 0 0, v0000022b1a2d30d0_0;  alias, 1 drivers
+E_0000022b1a26d0a0/0 .event negedge, v0000022b1a26c1f0_0;
+E_0000022b1a26d0a0/1 .event posedge, v0000022b1a2765a0_0;
+E_0000022b1a26d0a0 .event/or E_0000022b1a26d0a0/0, E_0000022b1a26d0a0/1;
+S_0000022b1a3eeca0 .scope module, "t1" "T_FF" 3 23, 3 26 0, S_0000022b1a276410;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "q";
+    .port_info 1 /INPUT 1 "t";
+    .port_info 2 /INPUT 1 "clk";
+    .port_info 3 /INPUT 1 "res";
+L_0000022b1a26bb40 .functor XOR 1, v0000022b1a2ca340_0, L_0000022b1a2d3170, C4<0>, C4<0>;
+v0000022b1a2ca480_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  alias, 1 drivers
+v0000022b1a2ca0c0_0 .net "d", 0 0, L_0000022b1a26bb40;  1 drivers
+v0000022b1a2c99e0_0 .net "q", 0 0, v0000022b1a2ca340_0;  1 drivers
+v0000022b1a2ca200_0 .net "res", 0 0, v0000022b1a2d30d0_0;  alias, 1 drivers
+v0000022b1a2ca7a0_0 .net "t", 0 0, L_0000022b1a2d3170;  1 drivers
+S_0000022b1a277db0 .scope module, "dff" "D_FF" 3 32, 3 35 0, S_0000022b1a3eeca0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "q";
+    .port_info 1 /INPUT 1 "d";
+    .port_info 2 /INPUT 1 "clk";
+    .port_info 3 /INPUT 1 "res";
+v0000022b1a2c9f80_0 .net "clk", 0 0, v0000022b1a2d37b0_0;  alias, 1 drivers
+v0000022b1a2ca700_0 .net "d", 0 0, L_0000022b1a26bb40;  alias, 1 drivers
+v0000022b1a2ca340_0 .var "q", 0 0;
+v0000022b1a2ca2a0_0 .net "res", 0 0, v0000022b1a2d30d0_0;  alias, 1 drivers
+S_0000022b1a277f40 .scope module, "g" "gray_encoder" 3 7, 3 10 0, S_0000022b1a276280;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 2 "out";
+    .port_info 1 /INPUT 2 "in";
+L_0000022b1a26b520 .functor AND 1, L_0000022b1a2d4430, L_0000022b1a2d3670, C4<1>, C4<1>;
+L_0000022b1a26b9f0 .functor XOR 1, L_0000022b1a2d4070, L_0000022b1a2d3ad0, C4<0>, C4<0>;
+v0000022b1a2ca660_0 .net *"_ivl_1", 0 0, L_0000022b1a26b520;  1 drivers
+v0000022b1a2c9d00_0 .net *"_ivl_12", 0 0, L_0000022b1a2d4070;  1 drivers
+v0000022b1a2ca3e0_0 .net *"_ivl_14", 0 0, L_0000022b1a2d3ad0;  1 drivers
+v0000022b1a2c9e40_0 .net *"_ivl_4", 0 0, L_0000022b1a2d4430;  1 drivers
+v0000022b1a2ca5c0_0 .net *"_ivl_6", 0 0, L_0000022b1a2d3670;  1 drivers
+v0000022b1a2ca160_0 .net *"_ivl_8", 0 0, L_0000022b1a26b9f0;  1 drivers
+v0000022b1a2c9da0_0 .net "in", 1 0, L_0000022b1a2d3850;  alias, 1 drivers
+v0000022b1a2c98a0_0 .net "out", 1 0, L_0000022b1a2d44d0;  alias, 1 drivers
+L_0000022b1a2d4430 .part L_0000022b1a2d3850, 0, 1;
+L_0000022b1a2d3670 .part L_0000022b1a2d3850, 1, 1;
+L_0000022b1a2d44d0 .concat8 [ 1 1 0 0], L_0000022b1a26b520, L_0000022b1a26b9f0;
+L_0000022b1a2d4070 .part L_0000022b1a2d3850, 0, 1;
+L_0000022b1a2d3ad0 .part L_0000022b1a2d3850, 1, 1;
+    .scope S_0000022b1a27b960;
+T_0 ;
+    %wait E_0000022b1a26d0a0;
+    %load/vec4 v0000022b1a2765a0_0;
+    %cmpi/e 1, 0, 1;
+    %jmp/0xz  T_0.0, 4;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000022b1a27bb90_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000022b1a27baf0_0;
+    %assign/vec4 v0000022b1a27bb90_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000022b1a277db0;
+T_1 ;
+    %wait E_0000022b1a26d0a0;
+    %load/vec4 v0000022b1a2ca2a0_0;
+    %cmpi/e 1, 0, 1;
+    %jmp/0xz  T_1.0, 4;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000022b1a2ca340_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0000022b1a2ca700_0;
+    %assign/vec4 v0000022b1a2ca340_0, 0;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000022b1a269e10;
+T_2 ;
+    %vpi_call 2 7 "$dumpfile", "grayCode.vcd" {0 0 0};
+    %vpi_call 2 8 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000022b1a269e10 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022b1a2d37b0_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0000022b1a269e10;
+T_3 ;
+    %delay 5, 0;
+    %load/vec4 v0000022b1a2d37b0_0;
+    %inv;
+    %store/vec4 v0000022b1a2d37b0_0, 0, 1;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0000022b1a269e10;
+T_4 ;
+    %delay 100, 0;
+    %vpi_call 2 12 "$finish" {0 0 0};
+    %end;
+    .thread T_4;
+    .scope S_0000022b1a269e10;
+T_5 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022b1a2d30d0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022b1a2d30d0_0, 0, 1;
+    %delay 50, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000022b1a2d30d0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000022b1a2d30d0_0, 0, 1;
+    %end;
+    .thread T_5;
+    .scope S_0000022b1a269e10;
+T_6 ;
+    %vpi_call 2 19 "$monitor", "out=%b", v0000022b1a2d4110_0 {0 0 0};
+    %end;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    ".\grayCodeStimulus.v";
+    ".\grayCode.v";
